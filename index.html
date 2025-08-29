@@ -23,13 +23,20 @@
       rel="stylesheet"
     />
     <!-- CSS -->
-    <link rel="stylesheet" href="styles.css" />
-    <title>Emergency Service</title>
+    <style>
+      .hind-madurai-regular {
+        font-family: "Hind Madurai", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+      }
+    </style>
   </head>
   <body class="mx-auto bg-[#f4fff5] pb-10 hind-madurai-regular">
     <header class="container mx-auto">
       <!-- Nav section -->
-      <nav class="bg-white flex items-center flex-col sm:flex-row sm:justify-between">
+      <nav
+        class="bg-white flex items-center flex-col sm:flex-row sm:justify-between"
+      >
         <div class="flex items-center p-4 gap-4">
           <img src="assets/logo.png" alt="" class="w-12" />
           <p class="font-extrabold text-lg text-[#006747]">
@@ -49,7 +56,8 @@
           <button
             class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl bg-[#41ff6b1a] rounded-[50px]"
           >
-            <span>100</span><img src="assets/coin.png" alt="" class="w-4 sm:w-8" />
+            <span>100</span
+            ><img src="assets/coin.png" alt="" class="w-4 sm:w-8" />
           </button>
           <button
             class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl bg-[#00a63e] text-white rounded-[50px]"
@@ -74,10 +82,14 @@
       </section>
 
       <!-- card section -->
-      <div class="container mx-auto mt-3 grid grid-cols-4 gap-6">
-        <section class="grid-cols-3 grid gap-4 col-span-3">
+      <div
+        class="container mx-auto flex flex-col-reverse mt-3 sm:grid sm:grid-cols-4 sm:gap-6"
+      >
+        <section
+          class="flex flex-col p-1 mx-auto mt-3 sm:grid-cols-3 sm:grid gap-4 sm:col-span-3"
+        >
           <!-- card-1 -->
-          <div class="card w-96 bg-base-100 shadow-sm mt-4">
+          <div class="card bg-base-100 shadow-sm mt-4">
             <div class="card-body">
               <div class="flex items-center justify-between">
                 <div class="bg-[#FFE3E2] w-10 h-10 rounded-2xl">
@@ -112,7 +124,7 @@
           </div>
 
           <!-- card-2 -->
-          <div class="card w-96 bg-base-100 shadow-sm mt-4">
+          <div class="card bg-base-100 shadow-sm mt-4">
             <div class="card-body">
               <div class="flex items-center justify-between">
                 <div class="bg-[#FFE3E2] w-10 h-10 rounded-2xl">
@@ -147,7 +159,7 @@
           </div>
 
           <!-- card-3 -->
-          <div class="card w-96 bg-base-100 shadow-sm mt-4">
+          <div class="card bg-base-100 shadow-sm mt-4">
             <div class="card-body">
               <div class="flex items-center justify-between">
                 <div class="bg-[#FFE3E2] w-10 h-10 rounded-2xl">
@@ -182,7 +194,7 @@
           </div>
 
           <!-- card-4 -->
-          <div class="card w-96 bg-base-100 shadow-sm mt-4">
+          <div class="card bg-base-100 shadow-sm mt-4">
             <div class="card-body">
               <div class="flex items-center justify-between">
                 <div class="bg-[#FFE3E2] w-10 h-10 rounded-2xl">
@@ -216,7 +228,7 @@
             </div>
           </div>
           <!-- card-5 -->
-          <div class="card w-96 bg-base-100 shadow-sm mt-4">
+          <div class="card bg-base-100 shadow-sm mt-4">
             <div class="card-body">
               <div class="flex items-center justify-between">
                 <div class="bg-[#FFE3E2] w-10 h-10 rounded-2xl">
@@ -250,7 +262,7 @@
             </div>
           </div>
           <!-- card-6 -->
-          <div class="card w-96 bg-base-100 shadow-sm mt-4">
+          <div class="card bg-base-100 shadow-sm mt-4">
             <div class="card-body">
               <div class="flex items-center justify-between">
                 <div class="bg-[#FFE3E2] w-10 h-10 rounded-2xl">
@@ -285,7 +297,7 @@
           </div>
 
           <!-- card-7 -->
-          <div class="card w-96 bg-base-100 shadow-sm mt-4">
+          <div class="card bg-base-100 shadow-sm mt-4">
             <div class="card-body">
               <div class="flex items-center justify-between">
                 <div class="bg-[#FFE3E2] w-10 h-10 rounded-2xl">
@@ -320,7 +332,7 @@
           </div>
 
           <!-- card-8 -->
-          <div class="card w-96 bg-base-100 shadow-sm mt-4">
+          <div class="card bg-base-100 shadow-sm mt-4">
             <div class="card-body">
               <div class="flex items-center justify-between">
                 <div class="bg-[#FFE3E2] w-10 h-10 rounded-2xl">
@@ -355,7 +367,7 @@
           </div>
 
           <!-- card-9 -->
-          <div class="card w-96 bg-base-100 shadow-sm mt-4">
+          <div class="card bg-base-100 shadow-sm mt-4">
             <div class="card-body">
               <div class="flex items-center justify-between">
                 <div class="bg-[#FFE3E2] w-10 h-10 rounded-2xl">
@@ -390,7 +402,9 @@
           </div>
         </section>
         <!-- Right bar section  -->
-        <section class="bg-white col-span-1 rounded-xl bg-base-100 shadow-sm">
+        <section
+          class="bg-white col-span-1 rounded-xl bg-base-100 shadow-sm mx-8 sm:mx-0 sm:mt-8 mt-1"
+        >
           <div class="flex justify-between items-center gap-14 p-2">
             <h2 class="text-2xl">
               <i class="fa-regular fa-clock"></i> Call History
@@ -400,6 +414,25 @@
             >
               Clear
             </button>
+          </div>
+          <!-- history cards section  -->
+           <div
+            class="bg-[#FAFAFA] p-4 m-2 rounded-[8px] flex justify-between items-center"
+          >
+            <div class="">
+              <h3 class="font-semibold text-lg">Fire Service Number</h3>
+              <p class="text-gray-500 text-lg">999</p>
+            </div>
+            <p class="">11:36:58 AM</p>
+          </div>
+          <div
+            class="bg-[#FAFAFA] p-4 m-2 rounded-[8px] flex justify-between items-center"
+          >
+            <div class="">
+              <h3 class="font-semibold text-lg">Fire Service Number</h3>
+              <p class="text-gray-500 text-lg">999</p>
+            </div>
+            <p class="">11:36:58 AM</p>
           </div>
         </section>
       </div>
