@@ -35,8 +35,8 @@ for (let button of callButtons) {
             const time = new Date().toLocaleTimeString([], {
                 hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true
             });
-            const callHistory = document.getElementById("call-history");
-            callHistory.insertAdjacentHTML('beforeend', `
+            const historyList = document.getElementById("history-list");
+            historyList.insertAdjacentHTML('beforeend', `
   <div class="bg-[#FAFAFA] p-4 m-2 rounded-[8px] flex justify-between items-center">
     <div>
       <h3 class="font-semibold text-lg">${serviceName}</h3>
@@ -52,6 +52,58 @@ for (let button of callButtons) {
 //clearing call history
 document.getElementById("clear-history")
   .addEventListener("click", function () {
-    const callHistory = document.getElementById("call-history");
-    callHistory.innerHTML = "";
+    const historyList = document.getElementById("history-list");
+    historyList.innerHTML = "";
   });
+
+  // copying the numbers
+const copyCountEl = document.getElementById("copy-count");
+const copyCards = document.querySelectorAll(".card");
+
+for (let card of copyCards) {
+  // find this card's Copy button (by its copy icon)
+  const copyIcon = card.querySelector(".fa-copy");
+  const copyButton = copyIcon ? copyIcon.closest("button") : null;
+  const numberEl = card.querySelector(".phone-number"); // hotline to copy
+
+  if (!copyButton || !numberEl) continue;
+
+  copyButton.addEventListener("click", function () {
+    const hotline = numberEl.innerText.trim();
+    if (!hotline) {
+      alert("Nothing to copy in this card.");
+      return;
+    }
+
+    // copy to clipboard (modern API -> fallback)
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(hotline)
+        .then(function () { afterCopy(hotline); })
+        .catch(function () { fallbackCopy(hotline); afterCopy(hotline); });
+    } else {
+      fallbackCopy(hotline);
+      afterCopy(hotline);
+    }
+  });
+}
+
+// fallback for older browsers
+function fallbackCopy(text) {
+  const ta = document.createElement("textarea");
+  ta.value = text;
+  ta.setAttribute("readonly", "");
+  ta.style.position = "fixed";
+  ta.style.left = "-9999px";
+  document.body.appendChild(ta);
+  ta.select();
+  try { document.execCommand("copy"); } catch (e) {}
+  document.body.removeChild(ta);
+}
+
+// after-copy: alert + increment global counter
+function afterCopy(hotline) {
+  alert("Copied hotline: " + hotline);
+  if (!copyCountEl) return;
+  let n = parseInt(copyCountEl.innerText, 10) || 0;
+  copyCountEl.innerText = String(n + 1);
+}
